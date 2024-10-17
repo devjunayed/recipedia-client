@@ -7,13 +7,13 @@ const HomeSidebar = () => {
   return (
     <>
       <Link href="/followers">
-        <UsergroupAddOutlined /> Followers
+        <UsergroupAddOutlined /> Followers <span>0</span>
       </Link>
       <Link href="/following">
-        <UserSwitchOutlined /> Following
+        <UserSwitchOutlined /> Following <span>0</span>
       </Link>
       <Link href="/saved">
-        <HeartOutlined /> Saved
+        <HeartOutlined /> Saved <span>0</span>
       </Link>
     </>
   );
