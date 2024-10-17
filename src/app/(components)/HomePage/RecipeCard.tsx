@@ -27,7 +27,8 @@ const RecipeCard = () => {
       </div>
 
       <div className=" my-4 mx-10 flex justify-between items-center">
-        <button className="mr-2">Like</button>
+        <button className="mr-2">Upvote</button>
+        <button className="mr-2">Downvote</button>
         <button className="mr-2">Comments</button>
         <button>Saved</button>
       </div>

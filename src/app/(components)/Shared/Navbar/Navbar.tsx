@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <div className="border-b-2  fixed bg-white z-50 left-0 w-full top-0">
+    <div className="border-b-2  bg-white z-50  w-full ">
       <nav style={styles.navbar} className="mx-10">
         <Link href="/">
           <Image width={70} height={70} src="/logo.png" alt="logo" />
