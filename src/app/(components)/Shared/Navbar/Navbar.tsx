@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     setIsClient(true);
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 768); // Set mobile breakpoint
     };
 
     handleResize();
@@ -35,56 +35,51 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <div className="border-b-2  bg-white z-50  w-full ">
-      <nav style={styles.navbar} className="mx-10">
-        <Link href="/">
-          <Image width={70} height={70} src="/logo.png" alt="logo" />
+    <div className="border-b-2 bg-white z-50 w-full">
+      <nav className="flex items-center justify-between px-4 lg:px-10">
+        {/* Logo */}
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            width={70}
+            height={70}
+            src="/logo.png"
+            alt="logo"
+            preview={false}
+          />
         </Link>
 
-        {/* Desktop Menu */}
-        {!isMobile ? (
-          <Menu mode="horizontal" items={menuItems} style={styles.menu} />
-        ) : (
-          // Mobile Hamburger Button
-          <Button
-            icon={<MenuOutlined />}
-            onClick={showDrawer}
-            type="primary"
-            style={styles.hamburgerButton}
-          />
-        )}
+        <div className="flex items-center gap-4">
+          {/* Desktop Menu */}
+          {!isMobile ? (
+            <>
+              <Menu
+                mode="horizontal"
+                className="flex space-x-2 text-md font-semibold uppercase bg-transparent border-none"
+                items={menuItems}
+              />
+            </>
+          ) : (
+            // Mobile Hamburger Button
+            <Button
+              icon={<MenuOutlined />}
+              onClick={showDrawer}
+              className="text-xl p-2 bg-primary text-white"
+            />
+          )}
 
-        {/* Drawer for Mobile Menu */}
-        <Drawer
-          title="Menu"
-          placement="right"
-          onClose={onClose}
-          visible={isDrawerVisible}
-        >
-          <Menu mode="vertical" items={menuItems} />
-        </Drawer>
+          {/* Drawer for Mobile Menu */}
+          <Drawer
+            title="Menu"
+            placement="right"
+            onClose={onClose}
+            visible={isDrawerVisible}
+          >
+            <Menu mode="vertical" className="text-lg" items={menuItems} />
+          </Drawer>
+        </div>
       </nav>
     </div>
   );
-};
-
-// Inline styles for the navbar
-const styles = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#FFFFF", // Primary color
-  },
-
-  menu: {
-    backgroundColor: "transparent",
-    borderBottom: "none",
-  },
-  hamburgerButton: {
-    backgroundColor: "#FF7A59",
-    border: "none",
-  },
 };
 
 export default Navbar;

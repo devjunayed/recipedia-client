@@ -45,7 +45,7 @@ const RecipeCard = () => {
       </div>
 
       <h5 className="font-light text-sm my-1">500 vote scores, 5 comments</h5>
-      <div className=" py-4 flex border-t-2 justify-between items-center">
+      {/* <div className=" py-4 flex border-t-2 justify-between items-center">
         <button className=" flex items-center gap-2">
           <UpCircleOutlined /> Upvote
         </button>
@@ -58,7 +58,7 @@ const RecipeCard = () => {
         <button className="flex items-center gap-2 ">
           <HeartOutlined /> Save
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
