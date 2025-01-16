@@ -1,9 +1,5 @@
 import {
-  CommentOutlined,
-  DownCircleOutlined,
-  HeartOutlined,
   StarOutlined,
-  UpCircleOutlined,
 } from "@ant-design/icons";
 import { Image } from "antd";
 

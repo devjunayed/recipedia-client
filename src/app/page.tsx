@@ -1,8 +1,8 @@
 import React from "react";
-import Preferences from "../../components/HomePage/Preferences";
-import HomeSidebar from "../../components/HomePage/HomeSidebar";
-import Ads, { AdsItems } from "../../components/HomePage/Ads";
-import RecipeCard from "../../components/HomePage/RecipeCard";
+import Preferences from "@/components/HomePage/Preferences";
+import HomeSidebar from "@/components/HomePage/HomeSidebar";
+import Ads, { AdsItems } from "@/components/HomePage/Ads";
+import RecipeCard from "@/components/HomePage/RecipeCard";
 
 const Home = () => {
   return (
@@ -21,7 +21,7 @@ const Home = () => {
           {Array.from({ length: 10 }, (_, index) => index).map((_, index) => (
             <div key={index}>
               <RecipeCard />
-              <span className="md:hidden">
+              <span className="">
                 {index % 4 == 0 && AdsItems[Math.floor(Math.random() * 3)]}
               </span>
             </div>
