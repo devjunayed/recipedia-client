@@ -1,8 +1,8 @@
 import React from "react";
-import Preferences from "../(components)/HomePage/Preferences";
-import HomeSidebar from "../(components)/HomePage/HomeSidebar";
-import Ads, { AdsItems } from "../(components)/HomePage/Ads";
-import RecipeCard from "../(components)/HomePage/RecipeCard";
+import Preferences from "../../components/HomePage/Preferences";
+import HomeSidebar from "../../components/HomePage/HomeSidebar";
+import Ads, { AdsItems } from "../../components/HomePage/Ads";
+import RecipeCard from "../../components/HomePage/RecipeCard";
 
 const Home = () => {
   return (

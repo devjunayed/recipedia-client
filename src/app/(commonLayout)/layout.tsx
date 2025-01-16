@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import Navbar from "../(components)/Shared/Navbar/Navbar";
-import BottomMenu from "../(components)/Shared/BottomMenu/BottomMenu";
+import Navbar from "../../components/Shared/Navbar/Navbar";
+import BottomMenu from "../../components/Shared/BottomMenu/BottomMenu";
 
 const CommonLayout = ({ children }: { children: ReactNode }) => {
   return (

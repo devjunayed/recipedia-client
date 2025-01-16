@@ -1,7 +1,7 @@
 import { NextUIProvider } from "@nextui-org/react";
-import React, { ReactNode, useRef } from "react";
 
-const Providers = ({ children }: { children: ReactNode }) => {
+
+const Providers = ({ children }: { children: React.ReactNode }) => {
   
   return (
       <NextUIProvider>{children}</NextUIProvider>
