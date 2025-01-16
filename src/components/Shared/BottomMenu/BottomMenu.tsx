@@ -1,9 +1,4 @@
-import {
-  HeartOutlined,
-  HomeOutlined,
-  UsergroupAddOutlined,
-  UserSwitchOutlined,
-} from "@ant-design/icons";
+
 import Link from "next/link";
 
 const BottomMenu = () => {
@@ -14,26 +9,26 @@ const BottomMenu = () => {
           className="flex flex-wrap items-center justify-center gap-2"
           href="/"
         >
-          <HomeOutlined /> Home
+           Home
         </Link>
 
         <Link
           className="flex flex-wrap items-center justify-center gap-2"
           href="/followers"
         >
-          <UsergroupAddOutlined /> Followers
+           Followers
         </Link>
         <Link
           className="flex flex-wrap items-center justify-center gap-2"
           href="/following"
         >
-          <UserSwitchOutlined /> Following
+           Following
         </Link>
         <Link
           className="flex flex-wrap items-center justify-center gap-2"
           href="/saved"
         >
-          <HeartOutlined /> Saved
+           Saved
         </Link>
       </div>
     </div>

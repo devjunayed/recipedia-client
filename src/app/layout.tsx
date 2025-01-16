@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import Providers from "@/lib/Providers";
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import BottomMenu from "@/components/Shared/BottomMenu/BottomMenu";
@@ -33,13 +32,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="overflow-y-hidden max-h-screen">
+        <div className="max-h-screen">
+
           <Navbar />
-          <div className="overflow-y-hidden">
-            {" "}
-            <AntdRegistry>
-              <Providers>{children}</Providers>
-            </AntdRegistry>
+          <div className="overflow-y-hidden h-[80%]">
+            <Providers>{children}</Providers>
           </div>
           <BottomMenu />
         </div>

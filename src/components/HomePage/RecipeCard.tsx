@@ -1,7 +1,5 @@
-import {
-  StarOutlined,
-} from "@ant-design/icons";
-import { Image } from "antd";
+import Image from "next/image";
+
 
 const RecipeCard = () => {
   return (
@@ -9,7 +7,7 @@ const RecipeCard = () => {
       <div className="flex gap-2 items-center mb-2 ">
           
           <Image
-            src="images.jpg"
+            src="/images.jpg"
             className="rounded-full "
             width={25}
             height={25}
@@ -29,15 +27,15 @@ const RecipeCard = () => {
 
       <div className="w-full relative">
         <Image
-          width="100%"
-          src="images.jpg"
+          width={500}
+          height={500}
+          src="/images.jpg"
           className="w-full h-auto rounded "
           alt="demo"
-          preview={false}
           style={{ objectFit: "cover", display: "block" }}
         />
         {/* <span className="absolute top-0 right-0 px-2 py-1 m-1 bg-white rounded">Free</span> */}
-        <span className="absolute top-0 right-0 px-2 py-1 m-1 text-white bg-orange-600 rounded"><StarOutlined /> Premium</span>
+        <span className="absolute top-0 right-0 px-2 py-1 m-1 text-white bg-orange-600 rounded">Premium</span>
       </div>
 
       <h5 className="font-light text-sm my-1">500 vote scores, 5 comments</h5>

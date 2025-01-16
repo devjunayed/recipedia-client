@@ -8,8 +8,9 @@ const Home = () => {
   return (
     <div className="mx-10  overflow-y-hidden">
       <Preferences />
+
       <div className="flex justify-center gap-4">
-        <div className="md:w-3/12 hidden  md:flex  border-r-2    min-h-screen p-4 rounded-md">
+        <div className="md:w-3/12 hidden  md:flex  border-r-2     p-4 rounded-md">
           <div className=" ml-10 flex flex-col gap-8">
             <HomeSidebar />
           </div>

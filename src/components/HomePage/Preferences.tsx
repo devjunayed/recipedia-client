@@ -1,4 +1,5 @@
-import { Button } from "antd";
+import { Button } from "@nextui-org/button";
+
 
 const Preferences = () => {
   return (

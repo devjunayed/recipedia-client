@@ -1,4 +1,5 @@
-import { Button } from "antd";
+import { Button } from "@nextui-org/button";
+
 
 export const AdsItems = [
   <>
