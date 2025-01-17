@@ -69,7 +69,7 @@ export default function Navbar() {
           <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link}  color="success" href="#" variant="flat">
+          <Button as={Link}  className="bg-primary " href="/register" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
