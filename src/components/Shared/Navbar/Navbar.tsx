@@ -57,7 +57,7 @@ export default function Navbar() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((menu) => (
           <NavbarItem isActive key={menu.key}>
-            <Link color="foreground" href={menu.link}>
+            <Link className="text-light" color="foreground" href={menu.link}>
               {menu.label}
             </Link>
           </NavbarItem>
@@ -69,7 +69,7 @@ export default function Navbar() {
           <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link}  className="bg-primary " href="/register" variant="flat">
+          <Button as={Link}  className="bg-primary text-white" href="/register" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>

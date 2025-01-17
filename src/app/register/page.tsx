@@ -1,10 +1,13 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { registerUser } from "@/actions/registerUser";
+import toast, { Toaster } from "react-hot-toast";
 
 // Define TypeScript interface for form inputs
-interface IFormInput {
+export interface IFormInput {
+  username: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -18,26 +21,69 @@ const RegisterPage: React.FC = () => {
     watch,
   } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    let response = null;
+    await toast.promise(registerUser(data), {
+      loading: "Loading",
+      success: (res) => {
+        response = res;
+        return "";
+      },
+      error: (err) => {
+        response = err;
+        return "";
+      },
+    });
+    // const res = await registerUser(data);
+
+    if (response.success && isSubmitSuccessful) {
+      toast("Registration successful!", {
+        duration: 4000,
+        position: "top-center",
+        icon: "🚀",
+      });
+    } else {
+      toast.error(response.message);
+    }
   };
 
   const password = watch("password");
 
   return (
     <div className="bg-soft-cream p-8 rounded-lg shadow-md max-w-md mx-auto mt-8 font-sans">
+      <Toaster />
       <h3 className="text-center text-charcoal-gray text-2xl font-semibold mb-6">
         Register
       </h3>
-      {isSubmitSuccessful && (
+      {/* {isSubmitSuccessful && (
         <p className="text-fresh-mint text-center text-lg mb-4">
           Registration successful!
         </p>
-      )}
+      )} */}
       <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Username */}
+        <div className="mb-4">
+          <label className="block text-charcoal-gray font-medium mb-1">
+            Name
+          </label>
+          <input
+            type="text"
+            className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-coral-red"
+            {...register("username", {
+              required: "Name is required",
+            })}
+          />
+          {errors.username && (
+            <span className="text-danger text-sm mt-1 block">
+              {errors.username.message}
+            </span>
+          )}
+        </div>
         {/* Email */}
         <div className="mb-4">
-          <label className="block text-charcoal-gray font-medium mb-1">Email</label>
+          <label className="block text-charcoal-gray font-medium mb-1">
+            Email
+          </label>
           <input
             type="email"
             className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-coral-red"
@@ -50,7 +96,7 @@ const RegisterPage: React.FC = () => {
             })}
           />
           {errors.email && (
-            <span className="text-crimson-red text-sm mt-1 block">
+            <span className="text-danger text-sm mt-1 block">
               {errors.email.message}
             </span>
           )}
@@ -58,7 +104,9 @@ const RegisterPage: React.FC = () => {
 
         {/* Password */}
         <div className="mb-4">
-          <label className="block text-charcoal-gray font-medium mb-1">Password</label>
+          <label className="block text-charcoal-gray font-medium mb-1">
+            Password
+          </label>
           <input
             type="password"
             className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-coral-red"
@@ -71,7 +119,7 @@ const RegisterPage: React.FC = () => {
             })}
           />
           {errors.password && (
-            <span className="text-crimson-red text-sm mt-1 block">
+            <span className="text-danger text-sm mt-1 block">
               {errors.password.message}
             </span>
           )}
@@ -92,7 +140,7 @@ const RegisterPage: React.FC = () => {
             })}
           />
           {errors.confirmPassword && (
-            <span className="text-crimson-red text-sm mt-1 block">
+            <span className="text-danger text-sm mt-1 block">
               {errors.confirmPassword.message}
             </span>
           )}
@@ -101,14 +149,14 @@ const RegisterPage: React.FC = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-coral-red text-black border-primary border hover:bg-primary  py-2 rounded-md hover:bg-opacity-90 transition duration-200 mt-4"
+          className="w-full bg-coral-red text-black hover:text-white border-primary border hover:bg-primary  py-2 rounded-md hover:bg-opacity-90 transition duration-200 mt-4"
         >
           Register
         </button>
       </form>
       <p className="text-center text-charcoal-gray text-sm mt-4">
-        Already have an account?{' '}
-        <Link className="text-coral-red hover:underline" href="/login" >
+        Already have an account?{" "}
+        <Link className="text-coral-red hover:underline" href="/login">
           Log in
         </Link>
       </p>

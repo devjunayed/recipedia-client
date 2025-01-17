@@ -81,7 +81,7 @@ const LoginForm: React.FC = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-coral-red text-black border hover:bg-primary border-primary py-2 rounded-md hover:bg-opacity-90 transition duration-200 mt-4"
+          className="w-full bg-coral-red hover:text-white text-black border hover:bg-primary border-primary py-2 rounded-md hover:bg-opacity-90 transition duration-200 mt-4"
         >
           Log In
         </button>
