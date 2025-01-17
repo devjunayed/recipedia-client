@@ -19,7 +19,9 @@
     "next-video": "^1.2.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-player": "^2.16.0"
+    "react-icons": "^5.4.0",
+    "react-player": "^2.16.0",
+    "react-tabs": "^6.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

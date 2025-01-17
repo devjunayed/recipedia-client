@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.recp-navbar header{
+    max-width: 100% !important;
+}
+.react-tabs__tab--selected{
+    border: 0.5px solid black;
+    padding: 4px 6px !important;
+    border-radius: 5px;
+}

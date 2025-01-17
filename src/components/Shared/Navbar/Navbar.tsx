@@ -12,6 +12,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const AcmeLogo = () => {
   return (
@@ -37,13 +38,19 @@ export default function Navbar() {
 
   return (
     <NextUINavbar
-      className="border-b-2 mx-0 bg-white z-50 w-full"
+      className="recp-navbar px-10 border-b-2  bg-white z-50 "
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">ACME</p>
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            width={70}
+            height={70}
+            src="/logo.png"
+            alt="logo"
+          />
+        </Link>
         </NavbarBrand>
       </NavbarContent>
 
@@ -59,10 +66,10 @@ export default function Navbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link}  color="success" href="#" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
