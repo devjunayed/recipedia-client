@@ -22,7 +22,7 @@ const RegisterPage: React.FC = () => {
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    let response = null;
+    let response = undefined;
     await toast.promise(registerUser(data), {
       loading: "Loading",
       success: (res) => {
@@ -36,14 +36,13 @@ const RegisterPage: React.FC = () => {
     });
     // const res = await registerUser(data);
 
-    if (response.success && isSubmitSuccessful) {
-      toast("Registration successful!", {
+    if (response?.success) {
+      toast.success("Registration successful!", {
         duration: 4000,
         position: "top-center",
-        icon: "🚀",
       });
     } else {
-      toast.error(response.message);
+      toast.error(response?.message);
     }
   };
 

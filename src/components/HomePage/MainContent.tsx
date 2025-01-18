@@ -2,36 +2,62 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import RecipeCard from "./RecipeCard";
+import { useEffect, useState } from "react";
+import HomeSidebar from "./HomeSidebar";
 import { AdsItems } from "./Ads";
 
 const MainContent = () => {
-  return (
-    <div className=" py-4  w-full bg-white z-50">
-      {/* <div className="flex flex-wrap items-center justify-center gap-4">
-        <button className="border px-2 py-1 rounded-sm">Most Liked</button>
-        <button>Free</button>
-        <button>Premium</button>
-      </div> */}
+  const [ads, setAds] = useState<(JSX.Element | null)[]>([]);
 
+  useEffect(() => {
+    // Randomly generate ads only on the client side
+    const randomAds = Array.from({ length: 10 }, (_, index) =>
+      index % 4 === 0 ? AdsItems[Math.floor(Math.random() * AdsItems.length)] : null
+    );
+    setAds(randomAds);
+  }, []);
+
+  return (
+    <div className="mx-10 mt-4 overflow-y-hidden">
       <Tabs>
-        <TabList className="text-center">
-          <Tab>Free</Tab>
-          <Tab>Title 2</Tab>
+        <TabList className="text-center flex gap-4 mb-4 justify-center flex-wrap">
+          <Tab className="px-2 py-1">Most Liked</Tab>
+          <Tab className="px-2 py-1">Free</Tab>
+          <Tab className="px-2 py-1">Premium</Tab>
         </TabList>
 
-        <TabPanel>
-           {Array.from({ length: 10 }, (_, index) => index).map((_, index) => (
-            <div key={index}>
-              <RecipeCard />
-              <span className="">
-                {index % 4 == 0 && AdsItems[Math.floor(Math.random() * 3)]}
-              </span>
+        <div className="flex justify-center gap-4">
+          {/* Left side */}
+          <div className="md:w-3/12 hidden md:flex border-r-2 p-4 rounded-md">
+            <div className="ml-10 flex flex-col gap-8">
+              <HomeSidebar />
             </div>
-          ))}
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-        </TabPanel>
+          </div>
+          {/* Middle */}
+          <div
+            className="flex max-h-[78vh] flex-col gap-4 mx-10 w-full md:w-6/12 
+        overflow-y-auto"
+          >
+            <TabPanel>
+              {Array.from({ length: 10 }, (_, index) => (
+                <div key={index}>
+                  <RecipeCard />
+                  <div>{ads[index]}</div>
+                </div>
+              ))}
+            </TabPanel>
+            <TabPanel>
+              <h2>Free Content</h2>
+            </TabPanel>
+            <TabPanel>
+              <h2>Premium content</h2>
+            </TabPanel>
+          </div>
+          {/* Right side */}
+          <div className="w-3/12 hidden md:block border-l-2 p-4 rounded-md">
+            Here will be the options
+          </div>
+        </div>
       </Tabs>
     </div>
   );
